@@ -29,6 +29,7 @@ Route::group(["prefix" => "v1"],
     });
     Route::group(["prefix" => "brands"], function() {
         Route::get('/', Brand\ListBrandsHandler::class);
+        Route::get('/{uuid}', Brand\FetchBrandHandler::class);
         Route::post('/create', Brand\CreateBrandHandler::class);
 
 
