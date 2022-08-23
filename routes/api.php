@@ -32,6 +32,7 @@ Route::group(["prefix" => "v1"],
         Route::get('/{uuid}', Brand\FetchBrandHandler::class);
         Route::put('/{uuid}', Brand\EditBrandHandler::class);
         Route::post('/create', Brand\CreateBrandHandler::class);
+        Route::delete('/{uuid}', Brand\DeleteBrandHandler::class);
 
 
     });
