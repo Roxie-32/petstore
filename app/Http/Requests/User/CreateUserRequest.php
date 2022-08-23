@@ -30,7 +30,7 @@ class CreateUserRequest extends FormRequest
             'phone_number' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
             'is_marketing' => 'required|string',
             'email' => 'required|email|unique:users',
-            'password' => 'required|string|min:6|max:50'
+            'password' => 'required|string|min:6|max:50|confirmed'
         ];
     }
 }

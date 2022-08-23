@@ -1,5 +1,7 @@
 <?php
 
+namespace App\RequestHandlers;
+
 use App\Services\Auth\CreateUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -25,5 +27,15 @@ Route::group(["prefix" => "v1"],
         Route::post('/create', [CreateUser::class, "create"]);
 
     });
+    Route::group(["prefix" => "brands"], function() {
+        Route::get('/', Brand\ListBrandsHandler::class);
+        Route::get('/{uuid}', Brand\FetchBrandHandler::class);
+        Route::put('/{uuid}', Brand\EditBrandHandler::class);
+        Route::post('/create', Brand\CreateBrandHandler::class);
+        Route::delete('/{uuid}', Brand\DeleteBrandHandler::class);
+
+
+    });
+
 
 });
