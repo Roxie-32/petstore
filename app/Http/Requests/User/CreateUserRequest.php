@@ -26,7 +26,6 @@ class CreateUserRequest extends FormRequest
         return [
             'first_name' => 'required|string',
             'last_name' => 'required|string',
-            'is_admin' => 'required|boolean',
             'address' => 'required|string',
             'phone_number' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
             'is_marketing' => 'required|string',

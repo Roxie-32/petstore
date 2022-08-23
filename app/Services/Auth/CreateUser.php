@@ -16,7 +16,6 @@ class CreateUser
             'uuid' => Str::uuid(),
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
-            'is_admin' => $request->is_admin,
             'password' => Hash::make($request->password),
             'email' => $request->email,
             'address' => $request->address,
