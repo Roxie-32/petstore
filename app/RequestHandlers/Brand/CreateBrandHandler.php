@@ -11,7 +11,7 @@ class CreateBrandHandler
     public function __invoke(CreateBrandRequest $request, CreateBrand $action)
     {
         $brand = $action->execute($request->all());
-        return new JsonResponse(['success' => true, 'brand' => $brand], 201);
+        return new JsonResponse(['success' => 1, 'data' => $brand], 200);
     }
 
 }

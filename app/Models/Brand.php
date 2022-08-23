@@ -15,7 +15,9 @@ class Brand extends Model
         "slug", 
     ];
 
-    protected $casts = [
-        'created_at' => 'datetime',
+   
+
+    protected $hidden = [
+        'id'
     ];
 }

@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 
 class CreateBrand
 {
-    public function execute(array $data) : Brand
+    public function execute(array $data) : Array
     {
         $brand = Brand::create([
             'uuid' => Str::uuid(),
@@ -16,7 +16,7 @@ class CreateBrand
             'slug'  => Str::slug($data['title'],'-') ,
         ]);
 
-        return $brand;
+        return $brand->only(['uuid']);
     }
 
 }
