@@ -28,16 +28,29 @@ class Product extends Model
         'metadata' => 'array' // save metadata as a json column
      ];
     protected $with = [
-        'category'
+        'category','brand'
     ];
+    protected $hidden = [
+        'id'
+    ];
+
+    //Create an accessor for metadata brand
+    public function getMetadataBrandAttribute()
+    {
+        return $this->metadata['brand'] ?? null;
+    }
 
      public function category(){
         return $this->belongsTo(Category::class,'category_uuid','uuid');
     }
     
     public function brand(){
-        return $this->belongsTo(Brand::class);
+        return $this->belongsTo(Brand::class,'metadata_brand','uuid');
     }
+
+    
+
+    
 }
     
 

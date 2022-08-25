@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Brand;
 use App\Models\Category;
+use App\Models\File;
 use App\Models\Product;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
@@ -28,6 +29,9 @@ class ProductFactory extends Factory
         //Get a random category uuid
         $category = Category::all()->random()->uuid;
 
+        //Get a random file uuid
+        $file = File::all()->random()->uuid;
+
 
         return [
             'category_uuid' => $category,
@@ -37,7 +41,7 @@ class ProductFactory extends Factory
             'description' => fake()->paragraph,
             'metadata' => [ // No need to json_encode this as your model will handle the conversion
                 'brand' => $brand,
-                'image' => $this->faker->imageUrl(640, 480),
+                'image' => $file,
             ],
         ];
     }
