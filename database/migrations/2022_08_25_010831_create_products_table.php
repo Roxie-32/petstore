@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('uuid');
             $table->string('title');
             $table->float('price');
-            $table->string('description');
+            $table->text('description');
             $table->json('metadata');
             $table->softDeletes();
             $table->timestamps();

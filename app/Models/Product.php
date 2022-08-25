@@ -16,7 +16,6 @@ class Product extends Model
         "price",
         "description",
         "metadata",
-        "price", 
     ];
 
     protected $dates = [
@@ -24,4 +23,11 @@ class Product extends Model
         'updated_at',
         'deleted_at'
     ];
+    protected $casts = [ 
+        'metadata' => 'array' // save metadata as a json column
+     ];
+
+     public function category(){
+        return $this->belongsTo(Category::class);
+    }
 }
