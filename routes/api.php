@@ -44,6 +44,8 @@ Route::group(["prefix" => "v1"],
     });
     Route::group(["prefix" => "product"], function() {
         Route::get('/', Product\ListProductsHandler::class);
+        Route::get('/{uuid}', Product\FetchProductHandler::class);
+
         
     });
 
