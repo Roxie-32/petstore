@@ -2,7 +2,6 @@
 
 namespace App\RequestHandlers;
 
-use App\Actions\Category\CreateCategory;
 use App\Services\Auth\CreateUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -37,6 +36,7 @@ Route::group(["prefix" => "v1"],
     });
 
     Route::group(["prefix" => "category"], function() {
+        Route::get('/', Category\ListCategoriesHandler::class);
         Route::get('/{uuid}', Category\FetchCategoryHandler::class);
         Route::post('/create', Category\CreateCategoryHandler::class);
         Route::put('/{uuid}', Category\EditCategoryHandler::class);

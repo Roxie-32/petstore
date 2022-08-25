@@ -2,7 +2,6 @@
 
 namespace App\RequestHandlers\Category;
 
-use App\Actions\Brand\CreateBrand;
 use App\Actions\Category\CreateCategory;
 use App\Http\Requests\Category\CreateCategoryRequest;
 use Illuminate\Http\JsonResponse;
