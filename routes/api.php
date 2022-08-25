@@ -37,7 +37,6 @@ Route::group(["prefix" => "v1"],
     });
 
     Route::group(["prefix" => "category"], function() {
-        
         Route::post('/create', Category\CreateCategoryHandler::class);
         Route::put('/{uuid}', Category\EditCategoryHandler::class);
 
