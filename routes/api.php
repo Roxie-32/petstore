@@ -59,7 +59,11 @@ Route::group(["prefix" => "v1"],
         Route::delete('/{uuid}', Product\DeleteProductHandler::class);       
     });
 
-    
+    // File Routes
+
+    Route::group(["prefix" => "file"], function() {
+        Route::post('/upload', File\UploadFileHandler::class);
+    });
 
 
 });

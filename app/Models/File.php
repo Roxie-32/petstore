@@ -16,4 +16,14 @@ class File extends Model
         "size",
         "type",
     ];
+    
+    protected $hidden = [
+        'id'
+    ];
+
+    
+    public function getSizeAttribute($value)
+    {
+       return (round($value / 1024, 2)) . ' KB';
+    }
 }
