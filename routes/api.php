@@ -2,6 +2,7 @@
 
 namespace App\RequestHandlers;
 
+use App\Actions\Category\CreateCategory;
 use App\Services\Auth\CreateUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -33,9 +34,14 @@ Route::group(["prefix" => "v1"],
         Route::put('/{uuid}', Brand\EditBrandHandler::class);
         Route::post('/create', Brand\CreateBrandHandler::class);
         Route::delete('/{uuid}', Brand\DeleteBrandHandler::class);
-
-
     });
+
+    Route::group(["prefix" => "category"], function() {
+        Route::post('/create', Category\CreateCategoryHandler::class);
+        
+    });
+
+    
 
 
 });
