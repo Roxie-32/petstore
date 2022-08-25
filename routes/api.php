@@ -65,5 +65,14 @@ Route::group(["prefix" => "v1"],
         Route::post('/upload', File\UploadFileHandler::class);
     });
 
+    //Main Page Routes
+    
+    Route::group(["prefix" => "main"], function() {
+        Route::get('/blog', Post\ListPostsHandler::class);
+        Route::get('/blog/{uuid}', Post\FetchPostHandler::class);
+        Route::get('/promotions', Promotion\ListPromotionsHandler::class);
+
+    });
+
 
 });
