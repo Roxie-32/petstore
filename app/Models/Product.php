@@ -26,8 +26,17 @@ class Product extends Model
     protected $casts = [ 
         'metadata' => 'array' // save metadata as a json column
      ];
+    protected $with = [
+        'category'
+    ];
 
      public function category(){
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class,'category_uuid','uuid');
+    }
+    
+    public function brand(){
+        return $this->belongsTo(Brand::class);
     }
 }
+    
+

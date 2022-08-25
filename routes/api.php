@@ -40,7 +40,10 @@ Route::group(["prefix" => "v1"],
         Route::get('/{uuid}', Category\FetchCategoryHandler::class);
         Route::post('/create', Category\CreateCategoryHandler::class);
         Route::put('/{uuid}', Category\EditCategoryHandler::class);
-
+        
+    });
+    Route::group(["prefix" => "product"], function() {
+        Route::get('/', Product\ListProductsHandler::class);
         
     });
 
