@@ -69,6 +69,8 @@ Route::group(["prefix" => "v1"],
     
     Route::group(["prefix" => "main"], function() {
         Route::get('/blog', Post\ListPostsHandler::class);
+        Route::get('/blog/{uuid}', Post\FetchPostHandler::class);
+
     });
 
 
