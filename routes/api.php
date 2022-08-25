@@ -46,6 +46,8 @@ Route::group(["prefix" => "v1"],
         Route::get('/', Product\ListProductsHandler::class);
         Route::get('/{uuid}', Product\FetchProductHandler::class);
         Route::post('/create', Product\CreateProductHandler::class);
+        Route::put('/{uuid}', Product\EditProductHandler::class);
+
 
         
     });
