@@ -20,4 +20,8 @@ class Post extends Model
     protected $casts = [ 
         'metadata' => 'array' // save metadata as a json column
      ];
+
+    protected $hidden = [
+        'id'
+    ];
 }

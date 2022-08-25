@@ -23,7 +23,7 @@ class PostFactory extends Factory
     {
 
         //Get post title to be converted to slug
-        $title = ucfirst(fake()->unique()->word);
+        $title = ucfirst(fake()->unique()->sentence);
 
         //Get a random file uuid
         $file = File::all()->random()->uuid;
@@ -34,7 +34,7 @@ class PostFactory extends Factory
             'slug' => Str::slug($title,'-'),
             'content' => fake()->paragraph,
             'metadata' => [ // No need to json_encode this as the model will handle the conversion
-                'author' => fake()->name,
+                'author' => fake()->firstName.' '.  fake()->lastName,
                 'image' => $file,
             ],
         ];
