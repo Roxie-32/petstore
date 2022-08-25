@@ -38,12 +38,15 @@ Route::group(["prefix" => "v1"],
         Route::delete('/{uuid}', Brand\DeleteBrandHandler::class);
     });
 
+    //Category  Routes
+
+    Route::get('/categories', Category\ListCategoriesHandler::class);
     Route::group(["prefix" => "category"], function() {
-        Route::get('/', Category\ListCategoriesHandler::class);
         Route::get('/{uuid}', Category\FetchCategoryHandler::class);
         Route::post('/create', Category\CreateCategoryHandler::class);
         Route::put('/{uuid}', Category\EditCategoryHandler::class);
-        
+        Route::delete('/{uuid}', Category\DeleteCategoryHandler::class);
+
     });
 
     //Product Route
