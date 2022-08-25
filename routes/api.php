@@ -27,8 +27,11 @@ Route::group(["prefix" => "v1"],
         Route::post('/create', [CreateUser::class, "create"]);
 
     });
-    Route::group(["prefix" => "brands"], function() {
-        Route::get('/', Brand\ListBrandsHandler::class);
+
+    //Brand Routes
+
+    Route::get('/brands', Brand\ListBrandsHandler::class);
+    Route::group(["prefix" => "brand"], function() {
         Route::get('/{uuid}', Brand\FetchBrandHandler::class);
         Route::put('/{uuid}', Brand\EditBrandHandler::class);
         Route::post('/create', Brand\CreateBrandHandler::class);
@@ -42,14 +45,15 @@ Route::group(["prefix" => "v1"],
         Route::put('/{uuid}', Category\EditCategoryHandler::class);
         
     });
+
+    //Product Route
+
+    Route::get('/products', Product\ListProductsHandler::class);
     Route::group(["prefix" => "product"], function() {
-        Route::get('/', Product\ListProductsHandler::class);
         Route::get('/{uuid}', Product\FetchProductHandler::class);
         Route::post('/create', Product\CreateProductHandler::class);
         Route::put('/{uuid}', Product\EditProductHandler::class);
-
-
-        
+        Route::delete('/{uuid}', Product\DeleteProductHandler::class);       
     });
 
     
