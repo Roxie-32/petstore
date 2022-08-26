@@ -9,6 +9,11 @@ class File extends Model
 {
     use HasFactory;
 
+     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
     protected $fillable = [
         "uuid",
         "name",
@@ -17,6 +22,11 @@ class File extends Model
         "type",
     ];
     
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
     protected $hidden = [
         'id'
     ];

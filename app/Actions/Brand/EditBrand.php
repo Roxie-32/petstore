@@ -10,6 +10,8 @@ class EditBrand
 {
     public function execute(array $data, $uuid)
     {
+        // Edit a brand
+
        $brand = Brand::whereUuid($uuid)->first();
        $brand->update([
             'title'  => $data['title'],

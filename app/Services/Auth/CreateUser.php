@@ -18,6 +18,8 @@ class CreateUser
     }
     public function create(CreateUserRequest $request, Token $token)
     {
+        //Create a user
+        
         $user = User::create([
 
             'uuid' => Str::uuid(),

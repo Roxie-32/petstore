@@ -9,6 +9,8 @@ class DeleteBrand
 {
     public function execute($uuid)
     {
+        //Delete a single brand
+
        $brand = Brand::whereUuid($uuid)->first();
        $brand->delete();
     }

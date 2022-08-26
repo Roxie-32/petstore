@@ -9,6 +9,8 @@ class DeleteProduct
 {
     public function execute($uuid)
     {
+        //Delete a product
+        
         $product = Product::whereUuid($uuid)->delete();
     }
 

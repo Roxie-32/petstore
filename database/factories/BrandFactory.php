@@ -20,6 +20,7 @@ class BrandFactory extends Factory
      */
     public function definition()
     {
+        //get the brand title to be converted to slug
         $title = ucfirst(fake()->unique()->word);
 
         return [

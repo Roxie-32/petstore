@@ -10,6 +10,8 @@ class CreateProduct
 {
     public function execute(array $data) : Array
     {
+        // Create a product
+
         $category = Product::create([
             'uuid' => Str::uuid(),
             'category_uuid'  => $data['category_uuid'],

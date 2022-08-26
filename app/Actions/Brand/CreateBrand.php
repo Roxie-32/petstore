@@ -10,6 +10,8 @@ class CreateBrand
 {
     public function execute(array $data) : Array
     {
+        //Create a brand
+        
         $brand = Brand::create([
             'uuid' => Str::uuid(),
             'title'  => $data['title'],

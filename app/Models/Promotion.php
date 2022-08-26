@@ -8,6 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Promotion extends Model
 {
     use HasFactory;
+
+     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
     protected $fillable = [
         "uuid",
         "title",
@@ -15,10 +21,20 @@ class Promotion extends Model
         "metadata",
     ];
     
+     /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
     protected $casts = [ 
         'metadata' => 'array' // save metadata as a json column
      ];
 
+       /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array<int, string>
+     */
     protected $hidden = [
         'id'
     ];

@@ -9,6 +9,8 @@ class ListCategories
 {
     public function execute($filter) : Object
     {
+        //List all categories
+
         $categories = Category::orderBy($filter['sort'], $filter['direction'])->paginate(10);
         
 

@@ -8,6 +8,8 @@ class FetchCategory
 {
     public function execute($uuid) : Category
     {
+        //Fetch a single category
+        
         $category = Category::whereUuid($uuid)->first();
 
         return $category;

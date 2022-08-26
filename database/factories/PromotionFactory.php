@@ -18,7 +18,8 @@ class PromotionFactory extends Factory
      */
     public function definition()
     {
-     
+        
+        //Get a random file uuid
        $file = File::all()->random()->uuid;
 
        $date= fake()->date($format= 'Y-m-d');

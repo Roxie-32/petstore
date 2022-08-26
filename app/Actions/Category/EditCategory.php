@@ -10,6 +10,8 @@ class EditCategory
 {
     public function execute(array $data, $uuid)
     {
+       //Edit a category
+
        $category = Category::whereUuid($uuid)->first();
        $category->update([
             'title'  => $data['title'],

@@ -8,6 +8,8 @@ class FetchProduct
 {
     public function execute($uuid) : Product
     {
+        //Fetch a product
+        
         $product = Product::whereUuid($uuid)->first();
 
         return $product;

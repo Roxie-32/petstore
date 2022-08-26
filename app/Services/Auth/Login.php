@@ -17,7 +17,10 @@ class Login
     }
     public function login(LoginRequest $request, Token $token)
     {
+        //check if user exists
        $user= User::where('email', $request->email)->first();
+
+       //check if password matches
         if($user && Hash::check($request->password, $user->password)){
             $token =  $this->token->assign($user);
 

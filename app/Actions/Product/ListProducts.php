@@ -9,9 +9,11 @@ class ListProducts
 {
     public function execute($filter) : Object
     {
-        $categories = Product::orderBy($filter['sort'], $filter['direction'])->paginate(10);
+        //List all products
+        
+        $products = Product::orderBy($filter['sort'], $filter['direction'])->paginate(10);
 
-        return $categories;
+        return $products;
     }
 
 }

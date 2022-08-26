@@ -20,6 +20,7 @@ class CategoryFactory extends Factory
      */
     public function definition()
     {
+        //Get category title to be converted to slug
         $title = ucfirst(fake()->unique()->word);
 
         return [

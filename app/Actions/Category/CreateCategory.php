@@ -10,6 +10,8 @@ class CreateCategory
 {
     public function execute(array $data) : Array
     {
+        //Create a category 
+
         $category = Category::create([
             'uuid' => Str::uuid(),
             'title'  => $data['title'],

@@ -10,6 +10,11 @@ class Product extends Model
 {
     use HasFactory, SoftDeletes;
 
+     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
     protected $fillable = [
         "category_uuid", 
         "uuid",
@@ -24,12 +29,24 @@ class Product extends Model
         'updated_at',
         'deleted_at'
     ];
+
+     /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
     protected $casts = [ 
         'metadata' => 'array' // save metadata as a json column
      ];
     protected $with = [
         'category','brand'
     ];
+
+      /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array<int, string>
+     */
     protected $hidden = [
         'id'
     ];

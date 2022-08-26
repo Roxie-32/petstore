@@ -9,6 +9,8 @@ class EditProduct
 {
     public function execute(array $data, $uuid)
     {
+       // Edit a product
+
        $product = Product::whereUuid($uuid)->first();
        $product->update([
         'category_uuid'  => $data['category_uuid'],
