@@ -7,12 +7,8 @@ use App\Models\Promotion;
 
 class ListPromotions
 {
-    public function execute()
+    public function execute($filter)
     {
-
-
-        $promotions = Promotion::paginate(10);
-
-        return $promotions;
+        return Promotion::orderBy($filter['sort'], $filter['direction'])->paginate(10);
     }
 }
