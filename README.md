@@ -15,7 +15,7 @@
 ## Database Setup
 
 - Update the .env file with the Database credentials
-- Run php artisan migrate --seed to migrate the database tables and also seed the tables with some dummy data
+- Run `php artisan migrate --seed` to migrate the database tables and also seed the tables with some dummy data
 
 ## Start Application
 
