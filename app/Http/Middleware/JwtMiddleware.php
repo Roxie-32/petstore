@@ -1,14 +1,14 @@
 <?php
+
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Lcobucci\JWT\Encoding\CannotDecodeContent;
 use Lcobucci\JWT\Encoding\JoseEncoder;
-use Lcobucci\JWT\Token\InvalidTokenStructure;
 use Lcobucci\JWT\Token\Parser;
-use Lcobucci\JWT\Token\UnsupportedHeaderFound;
-use Lcobucci\JWT\UnencryptedToken;
+use Lcobucci\JWT\Validation\Constraint\RelatedTo;
+use Lcobucci\JWT\Validation\Validator;
 
 
 class JwtMiddleware
@@ -22,18 +22,26 @@ class JwtMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        $access_token = $request->bearerToken();
+         $access_token = $request->bearerToken();
+
+         if(!$access_token){
+
+            return new JsonResponse(['error'=>'Invalid Bearer Token'],400);
+         }
 
         $parser = new Parser(new JoseEncoder());
 
-        try {
-            $token = $parser->parse($access_token);
-        } catch (CannotDecodeContent | InvalidTokenStructure | UnsupportedHeaderFound $e) {
-            return json()->response('Oh no, an error: ' . $e->getMessage()) ;
-        }
-        assert($token instanceof UnencryptedToken);
+        $token = $parser->parse($access_token);
 
-        // echo $token->claims()->get('sub');
+        $validator = new Validator();
+
+        try {
+            $validator->assert($token, new RelatedTo('1234567891')); // doesn't throw na exception
+            $validator->assert($token, new RelatedTo('1234567890'));
+        } catch (RequiredConstraintsViolated $e) {
+            // list of constraints violation exceptions:
+            var_dump($e->violations());
+        }
 
         return $next($request);
     }

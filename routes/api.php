@@ -3,6 +3,7 @@
 namespace App\RequestHandlers;
 
 use App\Services\Auth\CreateUser;
+use App\Services\Auth\Login;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,6 +26,7 @@ Route::group(["prefix" => "v1"],
     function () {
     Route::group(["prefix" => "user"], function() {
         Route::post('/create', [CreateUser::class, "create"]);
+        Route::post('/login', [Login::class, "login"]);
 
     });
 
