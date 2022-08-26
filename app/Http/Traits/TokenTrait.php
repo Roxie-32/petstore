@@ -1,19 +1,18 @@
 <?php
-
 declare(strict_types=1);
 
-namespace App\Services\Auth;
+namespace App\Http\Traits;
 
 use DateTimeImmutable;
 use Lcobucci\JWT\Encoding\ChainedFormatter;
 use Lcobucci\JWT\Encoding\JoseEncoder;
 use Lcobucci\JWT\Signer\Key\InMemory;
 use Lcobucci\JWT\Signer\Hmac\Sha256;
-use Lcobucci\JWT\Token\Builder;
+use Lcobucci\JWT\Token\Builder;;
 
-
-class Token
+trait TokenTrait
 {
+
     public function assign($user): string
     {
         $tokenBuilder = (new Builder(new JoseEncoder(), ChainedFormatter::default()));
