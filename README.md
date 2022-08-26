@@ -28,4 +28,4 @@ Sip some coffee while going through the code, you will enjoy it 😅
 I acknowledge that this codebase could be improved, however I focused on The Main Page(Blog)  and Product Section. I also included some nice-to-haves like Laravel IDE helper and Larastan level 8 rules. Run `/vendor/bin/phpstan analyse` to analyze the project
 
 Documentation
-All endpoints have been documented in OpenApi(Swagger) to see how requests can be made and how a sample response looks like.
+All endpoints have been documented in [OpenApi(Swagger)](https://app.swaggerhub.com/apis-docs/FIZZYFLEXY397/PetShop/1.0) to see how requests can be made and how a sample response looks like.
