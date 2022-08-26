@@ -4,12 +4,19 @@ namespace App\Services\Auth;
 
 use App\Http\Requests\User\CreateUserRequest;
 use App\Models\User;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
 class CreateUser
 {
-    public function create(CreateUserRequest $request)
+    private $token;
+
+    public function __construct(token $token)
+    {
+        $this->token = $token;
+    }
+    public function create(CreateUserRequest $request, Token $token)
     {
         $user = User::create([
 
@@ -24,6 +31,8 @@ class CreateUser
 
         ]);
 
-        return $user;
+        $token =  $this->token->assign($user);
+
+        return new JsonResponse(['access_token' => $token, 'token_type' => 'Bearer',], 200);
     }
 }
