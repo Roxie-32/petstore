@@ -7,9 +7,9 @@ use App\Models\Post;
 
 class ListPosts
 {
-    public function execute() : Object
+    public function execute($filter) 
     {
-        $posts = Post::paginate(10);
+        $posts = Post::orderBy($filter['sort'], $filter['direction'])->paginate(10);
 
         return $posts;
     }
