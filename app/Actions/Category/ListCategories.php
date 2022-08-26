@@ -7,9 +7,10 @@ use App\Models\Category;
 
 class ListCategories
 {
-    public function execute() : Object
+    public function execute($filter) : Object
     {
-        $categories = Category::paginate(10);
+        $categories = Category::orderBy($filter['sort'], $filter['direction'])->paginate(10);
+        
 
         return $categories;
     }

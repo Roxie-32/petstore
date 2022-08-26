@@ -7,9 +7,9 @@ use App\Models\Product;
 
 class ListProducts
 {
-    public function execute() : Object
+    public function execute($filter) : Object
     {
-        $categories = Product::paginate(10);
+        $categories = Product::orderBy($filter['sort'], $filter['direction'])->paginate(10);
 
         return $categories;
     }
