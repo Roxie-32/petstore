@@ -7,13 +7,11 @@ use App\Models\Brand;
 
 class ListBrands
 {
-    public function execute($filter) : Object
+    public function execute($filter): object
     {
         //List all brands
 
-        $brands = Brand::orderBy($filter['sort'], $filter['direction'])->paginate(10);
-
-        return $brands;
+        return Brand::orderBy($filter['sort'], $filter['direction'])->paginate(10);
     }
 
 }

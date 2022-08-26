@@ -15,6 +15,5 @@ class FileSeeder extends Seeder
     public function run()
     {
         \App\Models\File::factory(5)->create();
-
     }
 }

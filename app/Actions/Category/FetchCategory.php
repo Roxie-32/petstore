@@ -6,13 +6,11 @@ use App\Models\Category;
 
 class FetchCategory
 {
-    public function execute($uuid) : Category
+    public function execute($uuid): Category
     {
         //Fetch a single category
-        
-        $category = Category::whereUuid($uuid)->first();
 
-        return $category;
+        return Category::whereUuid($uuid)->first();
     }
 
 }

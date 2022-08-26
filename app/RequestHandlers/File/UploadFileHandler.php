@@ -8,9 +8,8 @@ use Illuminate\Http\JsonResponse;
 
 class UploadFileHandler
 {
-    public function __invoke(UploadFileRequest $request, UploadFile $action)
+    public function __invoke(UploadFileRequest $request, UploadFile $action): JsonResponse
     {
-        
         $file = $action->execute($request->file('file'));
         return new JsonResponse(['success' => 1, 'data' => $file], 200);
     }

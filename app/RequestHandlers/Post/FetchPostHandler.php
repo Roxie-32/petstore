@@ -7,7 +7,7 @@ use Illuminate\Http\JsonResponse;
 
 class FetchPostHandler
 {
-    public function __invoke(FetchPost $action, $uuid)
+    public function __invoke(FetchPost $action, $uuid): JsonResponse
     {
         $post = $action->execute($uuid);
         return new JsonResponse(['success' => 1, 'data' => $post], 200);

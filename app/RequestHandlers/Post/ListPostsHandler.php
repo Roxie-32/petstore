@@ -11,9 +11,8 @@ class ListPostsHandler
 {
     use FilterTrait;
 
-    public function __invoke(Request $request, ListPosts $action)
+    public function __invoke(Request $request, ListPosts $action): JsonResponse
     {
-        
         $posts = $action->execute($this->index($request));
         return new JsonResponse($posts, 200);
     }

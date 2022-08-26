@@ -18,7 +18,7 @@ class BrandFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition()
+    public function definition(): array
     {
         //get the brand title to be converted to slug
         $title = ucfirst(fake()->unique()->word);
@@ -26,7 +26,7 @@ class BrandFactory extends Factory
         return [
             'uuid' => Str::uuid(),
             'title' => $title,
-            'slug' => Str::slug($title,'-'),
+            'slug' => Str::slug($title, '-'),
 
         ];
     }

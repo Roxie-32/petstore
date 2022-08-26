@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 class ListBrandsHandler
 {
     use FilterTrait;
+    
     public function __invoke(Request $request, ListBrands $action)
     {
         $brands = $action->execute($this->index($request));

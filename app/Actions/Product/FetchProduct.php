@@ -6,13 +6,11 @@ use App\Models\Product;
 
 class FetchProduct
 {
-    public function execute($uuid) : Product
+    public function execute($uuid): Product
     {
         //Fetch a product
-        
-        $product = Product::whereUuid($uuid)->first();
 
-        return $product;
+        return Product::whereUuid($uuid)->first();
     }
 
 }

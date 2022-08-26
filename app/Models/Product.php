@@ -73,6 +73,12 @@ class Product extends Model
     protected $casts = [ 
         'metadata' => 'array' // save metadata as a json column
      ];
+
+      /**
+     * The relationships that should always be loaded.
+     *
+     * @var array
+     */
     protected $with = [
         'category','brand'
     ];

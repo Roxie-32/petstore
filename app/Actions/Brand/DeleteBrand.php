@@ -7,12 +7,12 @@ use App\Models\Brand;
 
 class DeleteBrand
 {
-    public function execute($uuid)
+    public function execute($uuid): void
     {
         //Delete a single brand
 
-       $brand = Brand::whereUuid($uuid)->first();
-       $brand->delete();
+        $brand = Brand::whereUuid($uuid)->first();
+        $brand->delete();
     }
 
 }

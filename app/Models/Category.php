@@ -31,16 +31,16 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
-    
-     /**
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
     protected $fillable = [
-        "uuid", 
+        "uuid",
         "title",
-        "slug", 
+        "slug",
     ];
 
     /**
@@ -52,7 +52,8 @@ class Category extends Model
         'id'
     ];
 
-    public function products(){
-        return $this->hasMany(Product::class, 'category_uuid','uuid');
+    public function products()
+    {
+        return $this->hasMany(Product::class, 'category_uuid', 'uuid');
     }
 }

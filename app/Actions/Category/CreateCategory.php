@@ -8,14 +8,14 @@ use Illuminate\Support\Str;
 
 class CreateCategory
 {
-    public function execute(array $data) : Array
+    public function execute(array $data): array
     {
-        //Create a category 
+        //Create a category
 
         $category = Category::create([
             'uuid' => Str::uuid(),
-            'title'  => $data['title'],
-            'slug'  => Str::slug($data['title'],'-') ,
+            'title' => $data['title'],
+            'slug' => Str::slug($data['title'], '-'),
         ]);
 
         return $category->only(['uuid']);

@@ -7,7 +7,7 @@ use Illuminate\Http\JsonResponse;
 
 class FetchBrandHandler
 {
-    public function __invoke(FetchBrand $action, $uuid)
+    public function __invoke(FetchBrand $action, $uuid): JsonResponse
     {
         $brand = $action->execute($uuid);
         return new JsonResponse(['success' => 1, 'data' => $brand], 200);

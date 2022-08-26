@@ -16,10 +16,11 @@ class CreateUser
     {
         $this->token = $token;
     }
-    public function create(CreateUserRequest $request, Token $token)
+
+    public function create(CreateUserRequest $request, Token $token): JsonResponse
     {
         //Create a user
-        
+
         $user = User::create([
 
             'uuid' => Str::uuid(),
@@ -33,7 +34,7 @@ class CreateUser
 
         ]);
 
-        $token =  $this->token->assign($user);
+        $token = $this->token->assign($user);
 
         return new JsonResponse(['access_token' => $token, 'token_type' => 'Bearer',], 200);
     }

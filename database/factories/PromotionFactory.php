@@ -16,24 +16,22 @@ class PromotionFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition()
+    public function definition(): array
     {
-        
         //Get a random file uuid
-       $file = File::all()->random()->uuid;
+        $file = File::all()->random()->uuid;
 
-       $date= fake()->date($format= 'Y-m-d');
+        $date = fake()->date($format = 'Y-m-d');
 
-       return [
-           'uuid' => Str::uuid(),
-           'title' =>fake()->unique()->sentence,
-           'content' => fake()->paragraph($nbSentences = 2),
-           'metadata' => [ // No need to json_encode this as the model will handle the conversion
-               'valid_from' =>fake()->date($format='Y-m-d', $max=$date),
-               'valid_to' => $date,
-               'image' => $file,
-           ],
-       ];
-   
+        return [
+            'uuid' => Str::uuid(),
+            'title' => fake()->unique()->sentence,
+            'content' => fake()->paragraph($nbSentences = 2),
+            'metadata' => [ // No need to json_encode this as the model will handle the conversion
+                'valid_from' => fake()->date($format = 'Y-m-d', $max = $date),
+                'valid_to' => $date,
+                'image' => $file,
+            ],
+        ];
     }
 }

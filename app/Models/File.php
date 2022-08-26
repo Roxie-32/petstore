@@ -34,7 +34,7 @@ class File extends Model
 {
     use HasFactory;
 
-     /**
+    /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
@@ -46,7 +46,7 @@ class File extends Model
         "size",
         "type",
     ];
-    
+
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -56,9 +56,9 @@ class File extends Model
         'id'
     ];
 
-    
-    public function getSizeAttribute($value)
+
+    public function getSizeAttribute($value): string
     {
-       return (round($value / 1024, 2)) . ' KB';
+        return (round($value / 1024, 2)) . ' KB';
     }
 }

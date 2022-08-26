@@ -10,9 +10,7 @@ class DeleteCategory
     {
         //Delete a category
 
-        $category = Category::whereUuid($uuid)->delete();
-
-        return $category;
+        return Category::whereUuid($uuid)->delete();
     }
 
 }

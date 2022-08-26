@@ -8,15 +8,13 @@ use Illuminate\Http\Request;
 trait FilterTrait
 {
 
-    public function index(Request $request)
+    public function index(Request $request): array
     {
-
         //check if desc query parameter is true or null
-        if($request->query('desc') == "true" || $request->query('desc') == null){
+        if ($request->query('desc') == "true" || $request->query('desc') == null) {
             $direction = 'desc';
-        }else{
+        } else {
             $direction = "asc";
-
         }
 
         $limit = $request->query('limit');
@@ -24,9 +22,9 @@ trait FilterTrait
 
         //return $query paramaters for filtering
         return [
-            'limit'=>$limit,
-            'sort'=>$sort,
-            'direction'=> $direction
+            'limit' => $limit,
+            'sort' => $sort,
+            'direction' => $direction
         ];
     }
 }

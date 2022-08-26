@@ -7,10 +7,10 @@ use App\Models\Product;
 
 class DeleteProduct
 {
-    public function execute($uuid)
+    public function execute($uuid): void
     {
         //Delete a product
-        
+
         $product = Product::whereUuid($uuid)->delete();
     }
 

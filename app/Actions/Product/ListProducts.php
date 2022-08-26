@@ -7,13 +7,11 @@ use App\Models\Product;
 
 class ListProducts
 {
-    public function execute($filter) : Object
+    public function execute($filter): object
     {
         //List all products
-        
-        $products = Product::orderBy($filter['sort'], $filter['direction'])->paginate(10);
 
-        return $products;
+        return Product::orderBy($filter['sort'], $filter['direction'])->paginate(10);
     }
 
 }

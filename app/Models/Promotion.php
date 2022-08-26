@@ -32,7 +32,7 @@ class Promotion extends Model
 {
     use HasFactory;
 
-     /**
+    /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
@@ -43,17 +43,17 @@ class Promotion extends Model
         "content",
         "metadata",
     ];
-    
-     /**
+
+    /**
      * The attributes that should be cast.
      *
      * @var array<string, string>
      */
-    protected $casts = [ 
+    protected $casts = [
         'metadata' => 'array' // save metadata as a json column
-     ];
+    ];
 
-       /**
+    /**
      * The attributes that should be hidden for serialization.
      *
      * @var array<int, string>
