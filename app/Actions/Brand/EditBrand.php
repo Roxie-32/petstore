@@ -8,12 +8,14 @@ use Illuminate\Support\Str;
 
 class EditBrand
 {
-    public function execute(array $data, $uuid)
+    public function execute(array $data, $uuid): Brand
     {
-       $brand = Brand::whereUuid($uuid)->first();
-       $brand->update([
-            'title'  => $data['title'],
-            'slug'  => Str::slug($data['title'],'-') ,
+        // Edit a brand
+
+        $brand = Brand::whereUuid($uuid)->first();
+        $brand->update([
+            'title' => $data['title'],
+            'slug' => Str::slug($data['title'], '-'),
         ]);
 
         return $brand;

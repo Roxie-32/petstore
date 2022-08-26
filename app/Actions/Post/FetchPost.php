@@ -7,11 +7,11 @@ use App\Models\Post;
 
 class FetchPost
 {
-    public function execute($uuid)
+    public function execute($uuid): Post
     {
-        $post = Post::whereUuid($uuid)->first();
+        //List all blog posts
 
-        return $post;
+        return Post::whereUuid($uuid)->first();
     }
 
 }

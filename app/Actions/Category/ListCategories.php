@@ -7,12 +7,11 @@ use App\Models\Category;
 
 class ListCategories
 {
-    public function execute($filter) : Object
+    public function execute($filter): object
     {
-        $categories = Category::orderBy($filter['sort'], $filter['direction'])->paginate(10);
-        
+        //List all categories
 
-        return $categories;
+        return Category::orderBy($filter['sort'], $filter['direction'])->paginate(10);
     }
 
 }

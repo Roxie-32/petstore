@@ -8,7 +8,7 @@ use Illuminate\Http\JsonResponse;
 
 class EditProductHandler
 {
-    public function __invoke(CreateProductRequest $request, EditProduct $action, $uuid)
+    public function __invoke(CreateProductRequest $request, EditProduct $action, $uuid): JsonResponse
     {
         $product = $action->execute($request->all(), $uuid);
         return new JsonResponse(['success' => 1, 'data' => $product], 200);

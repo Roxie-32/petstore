@@ -8,12 +8,14 @@ use Illuminate\Support\Str;
 
 class EditCategory
 {
-    public function execute(array $data, $uuid)
+    public function execute(array $data, $uuid): Category
     {
-       $category = Category::whereUuid($uuid)->first();
-       $category->update([
-            'title'  => $data['title'],
-            'slug'  => Str::slug($data['title'],'-') ,
+        //Edit a category
+
+        $category = Category::whereUuid($uuid)->first();
+        $category->update([
+            'title' => $data['title'],
+            'slug' => Str::slug($data['title'], '-'),
         ]);
 
         return $category;

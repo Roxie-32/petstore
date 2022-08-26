@@ -8,9 +8,9 @@ class DeleteCategory
 {
     public function execute($uuid)
     {
-        $category = Category::whereUuid($uuid)->delete();
+        //Delete a category
 
-        return $category;
+        return Category::whereUuid($uuid)->delete();
     }
 
 }

@@ -34,6 +34,8 @@ class AppServiceProvider extends ServiceProvider
          * @param string $pageName
          * @return array
          */
+
+         //Create manual paginator
         Collection::macro('paginate', function($perPage, $total = null, $page = null, $pageName = 'page') {
             $page = $page ?: LengthAwarePaginator::resolveCurrentPage($pageName);
 

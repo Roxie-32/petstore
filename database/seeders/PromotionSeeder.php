@@ -15,6 +15,5 @@ class PromotionSeeder extends Seeder
     public function run()
     {
         \App\Models\Promotion::factory(15)->create();
-
     }
 }

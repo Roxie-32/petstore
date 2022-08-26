@@ -8,15 +8,17 @@ use Illuminate\Support\Str;
 
 class CreateProduct
 {
-    public function execute(array $data) : Array
+    public function execute(array $data): array
     {
+        // Create a product
+
         $category = Product::create([
             'uuid' => Str::uuid(),
-            'category_uuid'  => $data['category_uuid'],
-            'title'  => $data['title'],
-            'price'  => $data['price'],
-            'description'  => $data['description'],
-            'metadata'  => $data['metadata'],
+            'category_uuid' => $data['category_uuid'],
+            'title' => $data['title'],
+            'price' => $data['price'],
+            'description' => $data['description'],
+            'metadata' => $data['metadata'],
         ]);
 
         return $category->only(['uuid']);

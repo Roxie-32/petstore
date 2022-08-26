@@ -7,7 +7,7 @@ use Illuminate\Http\JsonResponse;
 
 class FetchCategoryHandler
 {
-    public function __invoke(FetchCategory $action, $uuid)
+    public function __invoke(FetchCategory $action, $uuid): JsonResponse
     {
         $category = $action->execute($uuid);
         return new JsonResponse(['success' => 1, 'data' => $category], 200);

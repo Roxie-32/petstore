@@ -1,7 +1,8 @@
 <?php
+
 declare(strict_types=1);
 
-namespace App\Services\Auth;
+namespace App\Http\Traits;
 
 use DateTimeImmutable;
 use Lcobucci\JWT\Encoding\ChainedFormatter;
@@ -10,19 +11,22 @@ use Lcobucci\JWT\Signer\Key\InMemory;
 use Lcobucci\JWT\Signer\Hmac\Sha256;
 use Lcobucci\JWT\Token\Builder;
 
+;
 
-class Token{
-    public function assign($user) {
+trait TokenTrait
+{
 
+    public function assign($user): string
+    {
         $tokenBuilder = (new Builder(new JoseEncoder(), ChainedFormatter::default()));
-        $algorithm    = new Sha256();
-        $signingKey   = InMemory::plainText(random_bytes(32));
-        
-        $now   = new DateTimeImmutable();
+        $algorithm = new Sha256();
+        $signingKey = InMemory::plainText(random_bytes(32));
+
+        $now = new DateTimeImmutable();
         $token = $tokenBuilder
             // Configures the issuer (iss claim)
             ->issuedBy(config('app.url'))
-            
+
             // // Configures the audience (aud claim)
             // ->permittedFor('http://example.org')
             // Configures the id (jti claim)
@@ -39,7 +43,7 @@ class Token{
             // ->withHeader('foo', 'bar')
             // Builds a new token
             ->getToken($algorithm, $signingKey);
-        
-        return  $token->toString();
-        }
+
+        return $token->toString();
+    }
 }

@@ -10,8 +10,8 @@ use Illuminate\Http\Request;
 class ListCategoriesHandler
 {
     use FilterTrait;
-    
-    public function __invoke(Request $request, ListCategories $action)
+
+    public function __invoke(Request $request, ListCategories $action): JsonResponse
     {
         $categories = $action->execute($this->index($request));
         return new JsonResponse($categories, 200);

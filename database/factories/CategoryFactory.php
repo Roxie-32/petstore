@@ -18,14 +18,15 @@ class CategoryFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition()
+    public function definition(): array
     {
+        //Get category title to be converted to slug
         $title = ucfirst(fake()->unique()->word);
 
         return [
             'uuid' => Str::uuid(),
             'title' => $title,
-            'slug' => Str::slug($title,'-'),
+            'slug' => Str::slug($title, '-'),
 
         ];
     }

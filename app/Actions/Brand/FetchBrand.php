@@ -6,11 +6,11 @@ use App\Models\Brand;
 
 class FetchBrand
 {
-    public function execute($uuid) : Brand
+    public function execute($uuid): Brand
     {
-        $brand = Brand::whereUuid($uuid)->first();
+        // Fetch a single brand
 
-        return $brand;
+        return Brand::whereUuid($uuid)->first();
     }
 
 }

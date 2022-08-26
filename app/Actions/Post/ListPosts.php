@@ -7,11 +7,11 @@ use App\Models\Post;
 
 class ListPosts
 {
-    public function execute($filter) 
+    public function execute($filter): object
     {
-        $posts = Post::orderBy($filter['sort'], $filter['direction'])->paginate(10);
+        //Fetch a single post
 
-        return $posts;
+        return Post::orderBy($filter['sort'], $filter['direction'])->paginate(10);
     }
 
 }

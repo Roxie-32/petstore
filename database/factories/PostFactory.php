@@ -19,9 +19,8 @@ class PostFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition()
+    public function definition(): array
     {
-
         //Get post title to be converted to slug
         $title = ucfirst(fake()->unique()->sentence);
 
@@ -31,10 +30,10 @@ class PostFactory extends Factory
         return [
             'uuid' => Str::uuid(),
             'title' => $title,
-            'slug' => Str::slug($title,'-'),
+            'slug' => Str::slug($title, '-'),
             'content' => fake()->paragraph,
             'metadata' => [ // No need to json_encode this as the model will handle the conversion
-                'author' => fake()->firstName.' '.  fake()->lastName,
+                'author' => fake()->firstName . ' ' . fake()->lastName,
                 'image' => $file,
             ],
         ];

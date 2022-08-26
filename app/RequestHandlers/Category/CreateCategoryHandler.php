@@ -8,7 +8,7 @@ use Illuminate\Http\JsonResponse;
 
 class CreateCategoryHandler
 {
-    public function __invoke(CreateCategoryRequest $request, CreateCategory $action)
+    public function __invoke(CreateCategoryRequest $request, CreateCategory $action): JsonResponse
     {
         $category = $action->execute($request->all());
         return new JsonResponse(['success' => 1, 'data' => $category], 200);

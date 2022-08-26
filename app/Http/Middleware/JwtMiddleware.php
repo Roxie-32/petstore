@@ -22,11 +22,13 @@ class JwtMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
+        //get bearer token
          $access_token = $request->bearerToken();
 
-         if(!$access_token){
+         if(!$access_token){// check if access_token is empty
 
-            return new JsonResponse(['error'=>'Invalid Bearer Token'],400);
+            return response(['error'=>'Invalid Bearer Token'], 200)
+            ->header('Content-Type', 'text/json');
          }
 
         $parser = new Parser(new JoseEncoder());
@@ -40,7 +42,7 @@ class JwtMiddleware
             $validator->assert($token, new RelatedTo('1234567890'));
         } catch (RequiredConstraintsViolated $e) {
             // list of constraints violation exceptions:
-            var_dump($e->violations());
+            return new JsonResponse(['error'=>$e->violations()],400);
         }
 
         return $next($request);

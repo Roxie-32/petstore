@@ -8,10 +8,10 @@ use Illuminate\Http\JsonResponse;
 
 class DeleteProductHandler
 {
-    public function __invoke(DeleteProduct $action, $uuid)
+    public function __invoke(DeleteProduct $action, $uuid): JsonResponse
     {
         $product = $action->execute($uuid);
-        return new JsonResponse(['success' => 1, 'data' => [] ], 200);
+        return new JsonResponse(['success' => 1, 'data' => []], 200);
     }
 
 }

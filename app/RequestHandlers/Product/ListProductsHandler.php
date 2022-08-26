@@ -11,7 +11,7 @@ class ListProductsHandler
 {
     use FilterTrait;
 
-    public function __invoke(Request $request, ListProducts $action)
+    public function __invoke(Request $request, ListProducts $action): JsonResponse
     {
         $products = $action->execute($this->index($request));
         return new JsonResponse($products, 200);
