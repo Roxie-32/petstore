@@ -7,7 +7,7 @@ use App\Models\Brand;
 
 class DeleteBrand
 {
-    public function execute($uuid): void
+    public function execute($uuid)
     {
         //Delete a single brand
 

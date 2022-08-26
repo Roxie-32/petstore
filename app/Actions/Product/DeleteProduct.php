@@ -7,7 +7,7 @@ use App\Models\Product;
 
 class DeleteProduct
 {
-    public function execute($uuid): void
+    public function execute($uuid)
     {
         //Delete a product
 

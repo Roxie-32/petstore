@@ -27,7 +27,8 @@ class JwtMiddleware
 
          if(!$access_token){// check if access_token is empty
 
-            return new JsonResponse(['error'=>'Invalid Bearer Token'],400);
+            return response(['error'=>'Invalid Bearer Token'], 200)
+            ->header('Content-Type', 'text/json');
          }
 
         $parser = new Parser(new JoseEncoder());

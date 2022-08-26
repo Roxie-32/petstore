@@ -11,7 +11,7 @@ use Illuminate\Support\Str;
 
 class CreateUser
 {
-   use TokenTrait;
+    use TokenTrait;
 
     public function create(CreateUserRequest $request): JsonResponse
     {

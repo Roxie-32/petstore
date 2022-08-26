@@ -47,10 +47,10 @@ class File extends Model
         "type",
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
+  /**
+     * The attributes that should be hidden for serialization.
      *
-     * @var array
+     * @var array<int, string>
      */
     protected $hidden = [
         'id'
